@@ -232,5 +232,3 @@ Perfect for:
 * Testing software on mobile
 
 Happy Linuxing 🐧🚀
-
-```
