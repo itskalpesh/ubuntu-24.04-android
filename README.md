@@ -8,6 +8,29 @@ This repository provides a **complete step-by-step guide** to set up a **full Ub
 
 ---
 
+## 📸 Screenshots / Preview
+
+### 🖥️ Ubuntu 24.04 Desktop (GUI on Android)
+![Ubuntu Desktop](images/desktop.png)
+
+> Ubuntu 24.04 running with full desktop GUI inside Termux (No Root)
+
+---
+
+### ℹ️ System Information (Neofetch)
+![System Info](images/info.png)
+
+> Hardware, OS, kernel, memory details using `neofetch`
+
+---
+
+### 💻 VS Code (code-server) on Ubuntu
+![VS Code](images/vscode.png)
+
+> VS Code running inside Ubuntu 24.04 on Android
+
+---
+
 ## 📑 Index (Quick Navigation)
 
 - [Setup Order](#-setup-order-important)
