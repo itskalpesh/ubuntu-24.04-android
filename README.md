@@ -398,8 +398,71 @@ pkg install proot-distro
 ```bash
 vncstop
 vncstart
+```
+Sure 👍
+Here is a **clean, ready-to-paste `.md` snippet** for **only those two issues**, written professionally for your README.
+
+---
+
+````markdown
+### ❗ Desktop UI is Slow
+
+If the Ubuntu desktop feels slow or laggy:
+
+- Reduce VNC screen resolution
+- Set VNC picture quality to **Medium** instead of High
+- Close unused background apps on Android
+- Avoid running heavy applications simultaneously
+- Recommended device: **4 GB RAM or higher**
+
+Restart VNC if needed:
+```bash
+vncstop
+vncstart
+````
+
+---
+
+### ❗ Turbo C Doesn’t Start in DOSBox
+
+If Turbo C does not open or shows errors:
+
+1. Make sure Turbo C files are placed correctly:
 
 ```
+~/turboc
+```
+
+Required folder structure example:
+
+```
+turboc/
+ └── TC/
+     ├── BIN/
+     ├── BGI/
+     └── INCLUDE/
+```
+
+2. Start DOSBox:
+
+```bash
+dosbox
+```
+
+3. Inside DOSBox, run:
+
+```text
+mount c ~/turboc
+c:
+cd tc/bin
+tc
+```
+
+4. If it still doesn’t start:
+
+* Recheck folder names (case-sensitive)
+* Ensure `tc.exe` exists inside `TC/BIN`
+
 ---
 
 Happy Coding 🐧🚀
