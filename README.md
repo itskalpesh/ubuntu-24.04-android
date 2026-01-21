@@ -1,127 +1,134 @@
-# Install Ubuntu 24.04 on Android Without Root
+# How To Install Ubuntu 24.04 On Android Without Root
 
-This guide explains how to install **Ubuntu 24.04 LTS** on an Android device **without rooting**, using **Termux** and a container-based Linux environment.
-
-> ⚠️ Important  
-> Install **Termux only from F-Droid or GitHub**.  
-> The Play Store version is outdated and may cause errors.
+This repository provides a **complete step-by-step guide** to set up a **full Ubuntu 24.04 LTS development environment on Android without root**, including **Desktop GUI**, **Gedit**, **Turbo C**, **Python**, **Java with Tomcat**, **GCC**, and **VS Code (code-server)**.
 
 ---
 
-## 📌 Requirements
+## 📑 Index (Quick Navigation)
 
-Before starting, ensure you have:
+- [Setup Order](#-setup-order-important)
+- [Required Apps](#-required-apps-apk-links)
 
-- Android device (Android 7.0 or higher)
-- Minimum **3 GB RAM** recommended (4 GB+ preferred)
-- At least **8–10 GB free storage**
-- Stable internet connection
+### Main Installation
+- [Ubuntu 24.04 Installation (With GUI)](#-ubuntu-2404-installation-with-gui)
+- [Access Ubuntu Desktop (VNC)](#-access-ubuntu-desktop-vnc)
 
----
+### Editors & Languages
+- [Install Gedit](#-install-gedit-text-editor)
+- [Install Turbo C / Turbo C++](#-install-turbo-c--turbo-c-dosbox)
+- [Install Python](#-install-python-with-pip--venv)
+- [Install Java + Tomcat](#-install-java--apache-tomcat)
 
-## 📲 Required Apps (APK Download Links)
+### Configuration
+- [JAVA_HOME Setup](#-java_home-setup)
+- [Configure JAVA_HOME for Tomcat](#-configure-java_home-for-tomcat)
 
-### 1️⃣ Termux (Mandatory)
+### Extra Tools
+- [Install GCC / G++](#-install-gcc--g)
+- [Install VS Code (code-server)](#-install-vs-code-code-server)
 
-Install **Termux** from **one of the official sources below**:
+### Quick Install
+- [One-Command Ubuntu Setup](#-one-command-ubuntu-setup-base-install)
 
-- 🔹 **F-Droid (Recommended):**  
-  https://f-droid.org/packages/com.termux/
-
-- 🔹 **GitHub Releases:**  
-  https://github.com/termux/termux-app/releases
-
-❌ Do **NOT** install Termux from the Play Store.
-
----
-
-### 2️⃣ VNC Viewer (For Desktop GUI)
-
-Install **VNC Viewer** from Play Store:
-
-- 🔹 **Google Play Store:**  
-  https://play.google.com/store/apps/details?id=com.realvnc.viewer.android
+- [Conclusion](#-conclusion)
 
 ---
 
-## 🚀 Installation Steps
+## 📘 Setup Order (IMPORTANT)
 
-### 1️⃣ Update Termux Packages
+Follow this order strictly for best results:
 
+1. Ubuntu 24.04 + Desktop GUI  
+2. Gedit  
+3. Turbo C / Turbo C++  
+4. Python  
+5. Java + Tomcat  
+6. Other tools (GCC, VS Code)
+
+---
+
+## 📲 Required Apps (APK Links)
+
+### 🔹 Termux (Mandatory)
+❌ Do NOT install from Play Store
+
+- https://f-droid.org/packages/com.termux/
+- https://github.com/termux/termux-app/releases
+
+---
+
+### 🔹 VNC Viewer (GUI Access)
+
+- https://play.google.com/store/apps/details?id=com.realvnc.viewer.android
+
+---
+
+# 1️⃣ Ubuntu 24.04 Installation (With GUI)
+
+### Update Termux
 ```bash
 apt update && apt upgrade -y
 ````
 
----
-
-### 2️⃣ Install Required Tools
+### Install Required Tools
 
 ```bash
 pkg install wget git -y
 ```
 
----
-
-### 3️⃣ Download Ubuntu Setup Script
+### Download Ubuntu Script
 
 ```bash
 wget https://raw.githubusercontent.com/modded-ubuntu/modded-ubuntu/refs/heads/master/setup.sh
 ```
 
----
-
-### 4️⃣ Give Execute Permission
+### Give Permission
 
 ```bash
 chmod +x setup.sh
 ```
 
----
-
-### 5️⃣ Run the Installer
+### Install Ubuntu
 
 ```bash
 ./setup.sh
 ```
 
-* Type **`y`** when prompted
-* Allow **storage permission** if requested
-* Installation may take several minutes
+* Type `y` whenever asked
+* Allow storage permission
 
 ---
 
-### 6️⃣ Restart Termux
+### Restart Termux
 
-Close Termux completely and reopen it.
+Close and reopen the app.
 
 ---
 
-### 7️⃣ Start Ubuntu
+### Start Ubuntu
 
 ```bash
 ubuntu
 ```
 
----
-
-### 8️⃣ Create Ubuntu User
+### Create Ubuntu User
 
 ```bash
 bash user.sh
 ```
 
-* Enter a **lowercase username**
-* No spaces allowed
+* Lowercase username
+* No spaces
 
 ---
 
-### 9️⃣ Restart Termux Again
+### Restart Termux Again
 
-Close and reopen Termux.
+Close → reopen.
 
 ---
 
-### 🔟 Launch Ubuntu
+### Launch Ubuntu
 
 ```bash
 ubuntu
@@ -129,106 +136,268 @@ ubuntu
 
 ---
 
-## 🖥️ Install Ubuntu Desktop (GUI)
-
-To install a graphical desktop environment:
+## 🖥️ Install Desktop GUI
 
 ```bash
 sudo bash gui.sh
 ```
 
-* Create a **VNC password**
-* Remember this password for VNC login
+Set a **VNC password**.
 
 ---
 
-## 🖱️ Access Ubuntu Desktop via VNC
-
-1. Open Termux and start Ubuntu:
-
-   ```bash
-   ubuntu
-   ```
-
-2. Start VNC server:
-
-   ```bash
-   vncstart
-   ```
-
-3. Open **VNC Viewer**
-
-4. Create a new connection:
-
-   * **Address:** `localhost:1`
-   * **Name:** `Ubuntu 24.04`
-
-5. Connect and enter your VNC password
-
-🎉 Ubuntu desktop will appear.
-
----
-
-## 🛠️ Useful Commands
-
-| Task            | Command                                  |
-| --------------- | ---------------------------------------- |
-| Enter Ubuntu    | `ubuntu`                                 |
-| Start VNC       | `vncstart`                               |
-| Stop VNC        | `vncstop`                                |
-| Update Ubuntu   | `sudo apt update && sudo apt upgrade -y` |
-| Install package | `sudo apt install <package-name>`        |
-
----
-
-## 🗑️ Uninstall Ubuntu
-
-To completely remove Ubuntu:
+## 🖱️ Access Ubuntu Desktop (VNC)
 
 ```bash
-bash remove.sh
+ubuntu
+vncstart
+```
+
+VNC Viewer Settings:
+
+* Address: `localhost:1`
+* Name: `ubuntu`
+* Quality: **High**
+
+---
+
+# 2️⃣ Install Gedit (Text Editor)
+
+```bash
+sudo apt update
+sudo apt install -y gedit
+```
+
+Run:
+
+```bash
+gedit
 ```
 
 ---
 
-## ❓ Notes
+# 3️⃣ Install Turbo C / Turbo C++ (DOSBox)
 
-* No root access required
-* Runs in a safe container environment
-* Performance depends on device hardware
-* Best experience on **4 GB+ RAM** devices
+### Install DOSBox
+
+```bash
+sudo apt install -y dosbox
+```
+
+### Create Turbo C Directory
+
+```bash
+mkdir -p ~/turboc
+```
+
+📌 Copy Turbo C files (`TC`, `BIN`, `BGI`) into `~/turboc`
 
 ---
 
-## ⚡ One-Command Full Setup (Automatic)
+### Run Turbo C
 
-Run this **single command** in **Termux** to install Ubuntu 24.04:
+```bash
+dosbox
+```
+
+Inside DOSBox:
+
+```text
+mount c ~/turboc
+c:
+cd tc/bin
+tc
+```
+
+---
+
+# 4️⃣ Install Python (with pip & venv)
+
+```bash
+sudo apt install -y python3 python3-pip python3-venv
+```
+
+Check versions:
+
+```bash
+python3 --version
+pip3 --version
+```
+
+---
+
+# 5️⃣ Install Java + Apache Tomcat
+
+## Install Java (OpenJDK)
+
+```bash
+sudo apt install -y openjdk-17-jdk
+java -version
+```
+
+---
+
+## ⚙️ JAVA_HOME Setup
+
+Find Java path:
+
+```bash
+readlink -f $(which java)
+```
+
+Edit bashrc:
+
+```bash
+nano ~/.bashrc
+```
+
+Add:
+
+```bash
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-arm64
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+Reload:
+
+```bash
+source ~/.bashrc
+```
+
+Verify:
+
+```bash
+echo $JAVA_HOME
+java -version
+```
+
+---
+
+## 🌐 Install Apache Tomcat
+
+```bash
+wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.44/bin/apache-tomcat-10.1.44.tar.gz
+tar -xvzf apache-tomcat-10.1.44.tar.gz
+mv apache-tomcat-10.1.44 tomcat
+```
+
+Start Tomcat:
+
+```bash
+cd tomcat/bin
+chmod +x *.sh
+./startup.sh
+```
+
+Access:
+
+```
+http://localhost:8080
+```
+
+Stop:
+
+```bash
+./shutdown.sh
+```
+
+---
+
+## ⚙️ Configure JAVA_HOME for Tomcat
+
+```bash
+nano ~/tomcat/bin/setenv.sh
+```
+
+Add:
+
+```bash
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-arm64
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+```bash
+chmod +x setenv.sh
+./shutdown.sh
+./startup.sh
+```
+
+---
+
+# 6️⃣ Other Tools
+
+## Install GCC / G++
+
+```bash
+sudo apt install -y build-essential
+```
+
+---
+
+## Install VS Code (code-server)
+
+```bash
+sudo apt install curl -y
+curl -fsSL https://code-server.dev/install.sh | sh
+```
+
+Run:
+
+```bash
+code-server --bind-addr 0.0.0.0:8081
+```
+
+Stop:
+
+```bash
+pkill code-server
+```
+
+Run in background:
+
+```bash
+nohup code-server --bind-addr 0.0.0.0:8081 &
+```
+
+---
+
+## ⚡ One-Command Ubuntu Setup (Base Install)
 
 ```bash
 apt update && apt upgrade -y && pkg install wget git -y && wget https://raw.githubusercontent.com/modded-ubuntu/modded-ubuntu/refs/heads/master/setup.sh && chmod +x setup.sh && ./setup.sh
 ```
 
-### After Installation
-
-```bash
-ubuntu
-bash user.sh
-sudo bash gui.sh
-vncstart
-```
-
-✅ Ubuntu 24.04 with full desktop is now ready.
-
 ---
 
 ## ✅ Conclusion
 
-You now have **Ubuntu 24.04 LTS running on Android without root**, including a complete desktop GUI using VNC.
+You now have a **complete Ubuntu 24.04 programming and development environment on Android** with:
 
-Perfect for:
+* Desktop GUI
+* Gedit
+* Turbo C / Turbo C++
+* Python
+* Java + Tomcat
+* GCC & VS Code
 
-* Linux learning
-* Development & coding
-* Testing software on mobile
+🎓 Perfect for **students, developers, and learning programming on mobile devices**.
 
-Happy Linuxing 🐧🚀
+---
+
+## 📌 Optional Enhancements
+
+You can further improve this setup by adding:
+
+- ⭐ **GitHub Badges** (stars, forks, license)
+- 🧩 **Troubleshooting Section** for common errors
+- 📸 **Screenshots** of Ubuntu Desktop, VNC, and tools
+- 🚀 **Performance Optimization Tips** for low-RAM devices
+
+These additions can help new users understand and use the setup more easily.
+
+---
+
+Happy Coding 🐧🚀
+
+
+```
