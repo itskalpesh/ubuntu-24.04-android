@@ -1,3 +1,7 @@
+![Stars](https://img.shields.io/github/stars/USERNAME/REPO_NAME?style=for-the-badge)
+![Forks](https://img.shields.io/github/forks/USERNAME/REPO_NAME?style=for-the-badge)
+![License](https://img.shields.io/github/license/USERNAME/REPO_NAME?style=for-the-badge)
+
 # How To Install Ubuntu 24.04 On Android Without Root
 
 This repository provides a **complete step-by-step guide** to set up a **full Ubuntu 24.04 LTS development environment on Android without root**, including **Desktop GUI**, **Gedit**, **Turbo C**, **Python**, **Java with Tomcat**, **GCC**, and **VS Code (code-server)**.
@@ -384,20 +388,19 @@ You now have a **complete Ubuntu 24.04 programming and development environment o
 
 ---
 
-## 📌 Optional Enhancements
+## 🧩 Troubleshooting
 
-You can further improve this setup by adding:
+### Ubuntu command not found
+```bash
+pkg install proot-distro
+```
+### VNC not Connecting
+```bash
+vncstop
+vncstart
 
-- ⭐ **GitHub Badges** (stars, forks, license)
-- 🧩 **Troubleshooting Section** for common errors
-- 📸 **Screenshots** of Ubuntu Desktop, VNC, and tools
-- 🚀 **Performance Optimization Tips** for low-RAM devices
-
-These additions can help new users understand and use the setup more easily.
-
+```
 ---
 
 Happy Coding 🐧🚀
 
-
-```
