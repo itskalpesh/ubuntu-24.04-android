@@ -1,5 +1,3 @@
-
-````markdown
 # Install Ubuntu 24.04 on Android Without Root
 
 This guide explains how to install **Ubuntu 24.04 LTS** on an Android device **without rooting**, using **Termux** and a container-based Linux environment.
